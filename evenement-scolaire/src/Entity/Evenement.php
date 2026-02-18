@@ -13,38 +13,36 @@ class Evenement
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $Evenements = null;
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $nom = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $Evenement = null;
+    #[ORM\Column(type: "datetime")]
+    private ?\DateTimeInterface $date = null;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getEvenements(): ?string
+    public function getNom(): ?string
     {
-        return $this->Evenements;
+        return $this->nom;
     }
 
-    public function setEvenements(string $Evenements): static
+    public function setNom(string $nom): static
     {
-        $this->Evenements = $Evenements;
-
+        $this->nom = $nom;
         return $this;
     }
 
-    public function getEvenement(): ?string
+    public function getDate(): ?\DateTimeInterface
     {
-        return $this->Evenement;
+        return $this->date;
     }
 
-    public function setEvenement(string $Evenement): static
+    public function setDate(\DateTimeInterface $date): static
     {
-        $this->Evenement = $Evenement;
-
+        $this->date = $date;
         return $this;
     }
 }
